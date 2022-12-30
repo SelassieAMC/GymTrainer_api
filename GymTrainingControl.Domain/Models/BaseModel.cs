@@ -1,0 +1,10 @@
+namespace GymTrainingControl.Domain.Models;
+
+public class BaseModel
+{
+    public int Id { get; set; }
+    
+    public string Name { get; set; } = string.Empty;
+    
+    public string? Description { get; set; }
+}

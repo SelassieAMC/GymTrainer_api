@@ -16,7 +16,13 @@ public class RoutineRepository : IRoutineRepository
     
     public IEnumerable<Routine> GetAllWithExercises()
     {
-        return _context.Routines.Include(x => x.Exercises);
+        return _context.Routines
+            .Include(x => x.RoutineExercises)
+            .ThenInclude(x => x.Exercise)
+            .ThenInclude(x => x.ExercisesRoutine)
+            .ThenInclude(x => x.Series)
+            .Include(x => x.RoutineExercises)
+            .ThenInclude(x => x.RoutinePeriodDetail);
     }
 
     public IEnumerable<Routine> GetAll()
@@ -24,7 +30,7 @@ public class RoutineRepository : IRoutineRepository
         return _context.Routines;
     }
 
-    public void Update(Routine entity)
+    public void Update(Routine entity) //TODO ExerciseTablePopulate migration, add EnumType for exercise measure, update previous exercises adding missing data, add endpoint to create full routine from api.
     {
         throw new NotImplementedException();
     }

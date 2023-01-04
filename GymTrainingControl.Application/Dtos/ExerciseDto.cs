@@ -10,6 +10,10 @@ public class ExerciseDto : BaseDto
 
     public int Calories { get; set; }
     
+    public int? TimeExpendInSec { get; set; }
+
+    public string IntensityMeasure { get; set; } = string.Empty;
+    
     public IEnumerable<MuscleDto> MusclesWorked { get; set; } = new HashSet<MuscleDto>();
     
     public IEnumerable<CategoryDto> Categories { get; set; } = new HashSet<CategoryDto>();

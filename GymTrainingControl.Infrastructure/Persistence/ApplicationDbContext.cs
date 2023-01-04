@@ -13,6 +13,12 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Routine> Routines { get; set; } = null!;
 
+    public DbSet<RoutineExercises> RoutineExercises { get; set; } = null!;
+
+    public DbSet<RoutinePeriodDetail> RoutinePeriodDetails { get; set; }
+    
+    public DbSet<Serie> Series { get; set; }
+
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     { }
 
@@ -28,9 +34,12 @@ public class ApplicationDbContext : DbContext
             .WithMany(m => m.Exercises)
             .UsingEntity(j => j.ToTable("ExerciseMuscles"));
 
+        modelBuilder.Entity<Exercise>()
+            .HasMany(e => e.ExercisesRoutine)
+            .WithOne(r => r.Exercise);
+        
         modelBuilder.Entity<Routine>()
-            .HasMany(r => r.Exercises)
-            .WithMany(e => e.Routines)
-            .UsingEntity(j => j.ToTable("RoutineExercise"));
+            .HasMany(r => r.RoutineExercises)
+            .WithOne(r => r.Routine);
     }
 }

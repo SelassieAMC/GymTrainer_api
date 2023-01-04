@@ -12,9 +12,13 @@ public class Exercise : BaseModel
 
     public int Calories { get; set; }
     
+    public int? TimeExpendInSec { get; set; }
+
+    public string IntensityMeasure { get; set; } = string.Empty;
+    
     public ICollection<Muscle> MusclesWorked { get; set; } = new HashSet<Muscle>();
     
     public ICollection<Category> Categories { get; set; } = new HashSet<Category>();
 
-    public ICollection<Routine> Routines { get; set; } = new HashSet<Routine>();
+    public ICollection<RoutineExercises> ExercisesRoutine { get; set; } = new HashSet<RoutineExercises>();
 }

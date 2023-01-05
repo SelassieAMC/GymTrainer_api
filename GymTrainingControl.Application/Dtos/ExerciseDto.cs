@@ -10,7 +10,7 @@ public class ExerciseDto : BaseDto
 
     public int Calories { get; set; }
     
-    public int? TimeExpendInSec { get; set; }
+    public int? TimeSpentInSec { get; set; }
 
     public string IntensityMeasure { get; set; } = string.Empty;
     

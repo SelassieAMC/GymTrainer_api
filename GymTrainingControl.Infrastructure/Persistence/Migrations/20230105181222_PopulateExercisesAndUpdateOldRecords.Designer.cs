@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymTrainingControl.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230104033022_PopulateExercisesWithRealData")]
-    partial class PopulateExercisesWithRealData
+    [Migration("20230105181222_PopulateExercisesAndUpdateOldRecords")]
+    partial class PopulateExercisesAndUpdateOldRecords
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,8 +82,8 @@ namespace GymTrainingControl.Infrastructure.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("Calories")
-                        .HasColumnType("int");
+                    b.Property<float>("Calories")
+                        .HasColumnType("real");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -102,7 +102,7 @@ namespace GymTrainingControl.Infrastructure.Persistence.Migrations
                     b.Property<string>("PresentationImage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TimeExpendInSec")
+                    b.Property<int?>("TimeSpentInSec")
                         .HasColumnType("int");
 
                     b.Property<string>("Video")

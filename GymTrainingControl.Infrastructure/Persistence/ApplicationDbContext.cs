@@ -1,3 +1,4 @@
+using GymTrainingControl.Domain.Enums;
 using GymTrainingControl.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +38,11 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<Exercise>()
             .HasMany(e => e.ExercisesRoutine)
             .WithOne(r => r.Exercise);
+
+        modelBuilder.Entity<Exercise>()
+            .Property(e => e.IntensityMeasure)
+            .HasConversion(i => i.ToString(), 
+                f => (ExerciseMeasure)Enum.Parse(typeof(ExerciseMeasure), f));
         
         modelBuilder.Entity<Routine>()
             .HasMany(r => r.RoutineExercises)

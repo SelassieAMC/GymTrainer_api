@@ -1,4 +1,5 @@
 using System.Xml;
+using GymTrainingControl.Domain.Enums;
 
 namespace GymTrainingControl.Domain.Models;
 
@@ -10,11 +11,11 @@ public class Exercise : BaseModel
 
     public Uri? Video { get; set; }
 
-    public int Calories { get; set; }
+    public float Calories { get; set; }
     
-    public int? TimeExpendInSec { get; set; }
+    public int? TimeSpentInSec { get; set; }
 
-    public string IntensityMeasure { get; set; } = string.Empty;
+    public ExerciseMeasure IntensityMeasure { get; set; }
     
     public ICollection<Muscle> MusclesWorked { get; set; } = new HashSet<Muscle>();
     

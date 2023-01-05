@@ -20,8 +20,8 @@ public class ExerciseService : IExerciseService
     
     public IEnumerable<ExerciseDto> GetExercises()
     {
-        var data = _exerciseRepo.GetAll();
-        return _mapper.Map<List<ExerciseDto>>(data);
+        var data = _exerciseRepo.GetAll().ToList();
+        return _mapper.Map<IEnumerable<ExerciseDto>>(data);
     }
 
     public async Task<ExerciseDto?> GetExerciseByIdAsync(int id)

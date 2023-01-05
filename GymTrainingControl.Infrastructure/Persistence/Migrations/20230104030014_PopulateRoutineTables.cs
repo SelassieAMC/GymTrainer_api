@@ -88,9 +88,9 @@ namespace GymTrainingControl.Infrastructure.Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DROP TABLE RoutinePeriodDetails");
-            migrationBuilder.Sql("DROP TABLE Routines");
-            migrationBuilder.Sql("DROP TABLE Series");
+            migrationBuilder.Sql("DELETE * FROM RoutinePeriodDetails");
+            migrationBuilder.Sql("DELETE * FROM Routines");
+            migrationBuilder.Sql("DELETE * FROM Series");
         }
     }
 }

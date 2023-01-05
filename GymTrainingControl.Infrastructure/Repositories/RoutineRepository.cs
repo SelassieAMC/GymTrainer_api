@@ -30,7 +30,7 @@ public class RoutineRepository : IRoutineRepository
         return _context.Routines;
     }
 
-    public void Update(Routine entity) //TODO ExerciseTablePopulate migration, add EnumType for exercise measure, update previous exercises adding missing data, add endpoint to create full routine from api.
+    public void Update(Routine entity) //TODO add endpoint to create full routine from api.
     {
         throw new NotImplementedException();
     }

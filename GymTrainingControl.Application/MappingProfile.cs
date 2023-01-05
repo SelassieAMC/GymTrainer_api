@@ -9,6 +9,9 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Exercise, ExerciseDto>().ReverseMap();
+        CreateMap<Exercise, ExerciseDto>()
+            .ForMember(dest => dest.IntensityMeasure, opt =>
+            opt.MapFrom(src => src.IntensityMeasure.ToString()));
         CreateMap<Category, CategoryDto>().ReverseMap();
         CreateMap<Muscle, MuscleDto>().ReverseMap();
         CreateMap<RoutineExercises, ExerciseSeriesDto>()

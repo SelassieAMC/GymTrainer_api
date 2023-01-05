@@ -79,11 +79,11 @@ namespace GymTrainingControl.Infrastructure.Persistence.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("TRUNCATE TABLE ExerciseMuscle");
-            migrationBuilder.Sql("TRUNCATE TABLE CategoryExercise");
-            migrationBuilder.Sql("TRUNCATE TABLE Exercises");
-            migrationBuilder.Sql("TRUNCATE TABLE Categories");
-            migrationBuilder.Sql("TRUNCATE TABLE Muscles");
+            migrationBuilder.Sql("DELETE * FROM ExerciseMuscle");
+            migrationBuilder.Sql("DELETE * FROM CategoryExercise");
+            migrationBuilder.Sql("DELETE * FROM Exercises");
+            migrationBuilder.Sql("DELETE * FROM Categories");
+            migrationBuilder.Sql("DELETE * FROM Muscles");
         }
     }
 }
